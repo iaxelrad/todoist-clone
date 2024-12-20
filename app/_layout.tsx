@@ -1,7 +1,9 @@
-import { Stack } from 'expo-router';
-import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo';
+import { Stack, usePathname, useRouter, useSegments } from 'expo-router';
+import { ClerkProvider, ClerkLoaded, useAuth } from '@clerk/clerk-expo';
 import { tokenCache } from '@/utils/cache';
 import { Colors } from '@/constants/Colors';
+import { useEffect } from 'react';
+import { ActivityIndicator, View } from 'react-native';
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
@@ -10,6 +12,37 @@ if (!publishableKey) {
 }
 
 const InitialLayout = () => {
+  const router = useRouter();
+  const segments = useSegments();
+  const pathname = usePathname();
+
+  const { isLoaded, isSignedIn } = useAuth();
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    console.log(segments);
+    console.log(pathname);
+
+    console.log('isLoaded', isLoaded);
+    console.log('isSignedIn', isSignedIn);
+
+    const inAuthGroup = segments[0] === '(authenticated)';
+
+    if (isSignedIn && !inAuthGroup) {
+      router.replace('/(authenticated)/(tabs)/today');
+    } else if (!isSignedIn && pathname !== '/') {
+      router.replace('/');
+    }
+  }, [isLoaded, isSignedIn]);
+
+  if (!isLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size='large' color={Colors.primary} />
+      </View>
+    );
+  }
+
   return (
     <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: Colors.background } }}>
       <Stack.Screen name='index' />
