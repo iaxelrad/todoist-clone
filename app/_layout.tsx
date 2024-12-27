@@ -2,10 +2,15 @@ import { Stack, usePathname, useRouter, useSegments } from 'expo-router';
 import { ClerkProvider, ClerkLoaded, useAuth } from '@clerk/clerk-expo';
 import { tokenCache } from '@/utils/cache';
 import { Colors } from '@/constants/Colors';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { ActivityIndicator, LogBox, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Toaster } from 'sonner-native';
+import { SQLiteProvider, openDatabaseSync } from 'expo-sqlite';
+import { drizzle } from 'drizzle-orm//expo-sqlite';
+import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
+import migrations from '@/drizzle/migrations';
+import { addDummyData } from '@/utils/addDummyData';
 
 LogBox.ignoreLogs(['Clerk: Clerk has been loaded with development keys']);
 
@@ -53,13 +58,33 @@ const InitialLayout = () => {
 };
 
 const RootLayout = () => {
+  const expoDb = openDatabaseSync('todos');
+  const db = drizzle(expoDb);
+
+  const { success, error } = useMigrations(db, migrations);
+
+  useEffect(() => {
+    if (!success) return;
+    addDummyData(db);
+  }, [success]);
+
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <ClerkLoaded>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <Toaster />
-          <InitialLayout />
-        </GestureHandlerRootView>
+        <Suspense fallback={<ActivityIndicator size='large' color={Colors.primary} />}>
+          <SQLiteProvider
+            databaseName='todos'
+            useSuspense
+            options={{
+              enableChangeListener: true,
+            }}
+          >
+            <GestureHandlerRootView style={{ flex: 1 }}>
+              <Toaster />
+              <InitialLayout />
+            </GestureHandlerRootView>
+          </SQLiteProvider>
+        </Suspense>
       </ClerkLoaded>
     </ClerkProvider>
   );
