@@ -3,7 +3,11 @@ import { ClerkProvider, ClerkLoaded, useAuth } from '@clerk/clerk-expo';
 import { tokenCache } from '@/utils/cache';
 import { Colors } from '@/constants/Colors';
 import { useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, LogBox, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Toaster } from 'sonner-native';
+
+LogBox.ignoreLogs(['Clerk: Clerk has been loaded with development keys']);
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
@@ -20,8 +24,6 @@ const InitialLayout = () => {
 
   useEffect(() => {
     if (!isLoaded) return;
-    console.log(segments);
-    console.log(pathname);
 
     console.log('isLoaded', isLoaded);
     console.log('isSignedIn', isSignedIn);
@@ -54,7 +56,10 @@ const RootLayout = () => {
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <ClerkLoaded>
-        <InitialLayout />
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Toaster />
+          <InitialLayout />
+        </GestureHandlerRootView>
       </ClerkLoaded>
     </ClerkProvider>
   );

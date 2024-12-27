@@ -1,5 +1,10 @@
 PODS:
   - boost (1.84.0)
+  - ComputableLayout (0.7.0):
+    - DGSwiftUtilities (~> 0.11)
+  - ContextMenuAuxiliaryPreview (0.5.2):
+    - DGSwiftUtilities (~> 0.29)
+  - DGSwiftUtilities (0.29.0)
   - DoubleConversion (1.1.6)
   - EXApplication (6.0.1):
     - ExpoModulesCore
@@ -220,6 +225,8 @@ PODS:
   - ExpoAsset (11.0.1):
     - ExpoModulesCore
   - ExpoBlur (14.0.1):
+    - ExpoModulesCore
+  - ExpoClipboard (7.0.0):
     - ExpoModulesCore
   - ExpoCrypto (14.0.1):
     - ExpoModulesCore
@@ -1511,7 +1518,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-bottom-tabs (0.3.2):
+  - react-native-bottom-tabs (0.5.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1524,7 +1531,7 @@ PODS:
     - React-featureflags
     - React-graphics
     - React-ImageManager
-    - react-native-bottom-tabs/common (= 0.3.2)
+    - react-native-bottom-tabs/common (= 0.5.2)
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1532,9 +1539,11 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
+    - SDWebImage (>= 5.19.1)
+    - SDWebImageSVGCoder (>= 1.7.0)
     - SwiftUIIntrospect (~> 1.0)
     - Yoga
-  - react-native-bottom-tabs/common (0.3.2):
+  - react-native-bottom-tabs/common (0.5.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1554,7 +1563,30 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
+    - SDWebImage (>= 5.19.1)
+    - SDWebImageSVGCoder (>= 1.7.0)
     - SwiftUIIntrospect (~> 1.0)
+    - Yoga
+  - react-native-menu (1.2.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
     - Yoga
   - react-native-safe-area-context (4.12.0):
     - DoubleConversion
@@ -1910,6 +1942,15 @@ PODS:
     - React-logger (= 0.76.5)
     - React-perflogger (= 0.76.5)
     - React-utils (= 0.76.5)
+  - ReactNativeIosContextMenu (2.5.3):
+    - ContextMenuAuxiliaryPreview (~> 0.3)
+    - DGSwiftUtilities
+    - ExpoModulesCore
+    - ReactNativeIosUtilities
+  - ReactNativeIosUtilities (4.5.1):
+    - ComputableLayout (~> 0.7)
+    - DGSwiftUtilities (~> 0.27)
+    - ExpoModulesCore
   - RNGestureHandler (2.20.2):
     - DoubleConversion
     - glog
@@ -2063,6 +2104,54 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNSVG (15.10.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - RNSVG/common (= 15.10.1)
+    - Yoga
+  - RNSVG/common (15.10.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - SDWebImage (5.20.0):
+    - SDWebImage/Core (= 5.20.0)
+  - SDWebImage/Core (5.20.0)
+  - SDWebImageSVGCoder (1.8.0):
+    - SDWebImage/Core (~> 5.6)
   - SocketRocket (0.7.1)
   - SwiftUIIntrospect (1.3.0)
   - Yoga (0.0.0)
@@ -2081,6 +2170,7 @@ DEPENDENCIES:
   - expo-dev-menu-interface (from `../node_modules/expo-dev-menu-interface/ios`)
   - ExpoAsset (from `../node_modules/expo-asset/ios`)
   - ExpoBlur (from `../node_modules/expo-blur/ios`)
+  - ExpoClipboard (from `../node_modules/expo-clipboard/ios`)
   - ExpoCrypto (from `../node_modules/expo-crypto/ios`)
   - ExpoFileSystem (from `../node_modules/expo-file-system/ios`)
   - ExpoFont (from `../node_modules/expo-font/ios`)
@@ -2131,6 +2221,7 @@ DEPENDENCIES:
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
   - react-native-bottom-tabs (from `../node_modules/react-native-bottom-tabs`)
+  - "react-native-menu (from `../node_modules/@react-native-menu/menu`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-webview (from `../node_modules/react-native-webview`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
@@ -2160,13 +2251,23 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeIosContextMenu (from `../node_modules/react-native-ios-context-menu`)
+  - ReactNativeIosUtilities (from `../node_modules/react-native-ios-utilities`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSVG (from `../node_modules/react-native-svg`)
+  - SDWebImage
+  - SDWebImageSVGCoder
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
+    - ComputableLayout
+    - ContextMenuAuxiliaryPreview
+    - DGSwiftUtilities
+    - SDWebImage
+    - SDWebImageSVGCoder
     - SocketRocket
     - SwiftUIIntrospect
 
@@ -2197,6 +2298,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-asset/ios"
   ExpoBlur:
     :path: "../node_modules/expo-blur/ios"
+  ExpoClipboard:
+    :path: "../node_modules/expo-clipboard/ios"
   ExpoCrypto:
     :path: "../node_modules/expo-crypto/ios"
   ExpoFileSystem:
@@ -2294,6 +2397,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
   react-native-bottom-tabs:
     :path: "../node_modules/react-native-bottom-tabs"
+  react-native-menu:
+    :path: "../node_modules/@react-native-menu/menu"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-webview:
@@ -2352,17 +2457,26 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeIosContextMenu:
+    :path: "../node_modules/react-native-ios-context-menu"
+  ReactNativeIosUtilities:
+    :path: "../node_modules/react-native-ios-utilities"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   boost: 1dca942403ed9342f98334bf4c3621f011aa7946
+  ComputableLayout: c50faffac4ed9f8f05b0ce5e6f3a60df1f6042c8
+  ContextMenuAuxiliaryPreview: 20be0be795b783b68f8792732eed4bed9f202c1c
+  DGSwiftUtilities: 626565e1ee90ddacebd8520ea1ce730110ad13e4
   DoubleConversion: f16ae600a246532c4020132d54af21d0ddb2a385
   EXApplication: e1ad9c950c98b2b134578092c948b10b403f3ea7
   EXConstants: dd2fe64c6cdb1383b694c309a63028a8e9f2be6d
@@ -2375,6 +2489,7 @@ SPEC CHECKSUMS:
   expo-dev-menu-interface: 4baf2f8b3b79ce37cf4b900e4b3ba6df3384f0a1
   ExpoAsset: 8138f2a9ec55ae1ad7c3871448379f7d97692d15
   ExpoBlur: 562b3da84d3cd79016c411671eaf71a404266415
+  ExpoClipboard: 166ca8c13ca1041f5ba619a211f59427ab5da8a7
   ExpoCrypto: 8465f71eb3798c194c0a509d4a76e5c429656d83
   ExpoFileSystem: 2161e16165279fb46e138d8ea8795c71cc6718be
   ExpoFont: 7522d869d84ee2ee8093ee997fef5b86f85d856b
@@ -2422,7 +2537,8 @@ SPEC CHECKSUMS:
   React-logger: 697873f06b8ba436e3cddf28018ab4741e8071b6
   React-Mapbuffer: c174e11bdea12dce07df8669d6c0dc97eb0c7706
   React-microtasksnativemodule: 8a80099ad7391f4e13a48b12796d96680f120dc6
-  react-native-bottom-tabs: 985c8c0b9ee6d0a5c80910206be3d04fbfd6db50
+  react-native-bottom-tabs: e1a13267a8c4584d6a96bc732f8e9b93fe6dfa2d
+  react-native-menu: db8785a1a3ba5d2f694f7e28315ae56d52a920d7
   react-native-safe-area-context: 458f6b948437afcb59198016b26bbd02ff9c3b47
   react-native-webview: 40b8823be3fac70f0404016e6aed754ef4307517
   React-nativeconfig: f7ab6c152e780b99a8c17448f2d99cf5f69a2311
@@ -2452,13 +2568,18 @@ SPEC CHECKSUMS:
   React-utils: 541c6cca08f32597d4183f00e83eef2ed20d4c54
   ReactCodegen: daa13d9e48c9bdb1daac4bd694b9dd54e06681df
   ReactCommon: a6b87a7591591f7a52d9c0fec3aa05e0620d5dd3
+  ReactNativeIosContextMenu: 4601cc5113ca45bc7295707bf5c76987caac8bd7
+  ReactNativeIosUtilities: 4980803356bff7906929d5d034da58bfc9bb824a
   RNGestureHandler: fc5ce5bf284640d3af6431c3a5c3bc121e98d045
   RNReanimated: eb3170ded1ec1f61d8129c6cc2df06778f99703f
   RNScreens: 27587018b2e6082f5172b1ecf158c14a0e8842d6
+  RNSVG: ec2e9d524612ee95db5df143a54518c5404d93f0
+  SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
+  SDWebImageSVGCoder: 8e10c8f6cc879c7dfb317b284e13dd589379f01c
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SwiftUIIntrospect: fee9aa07293ee280373a591e1824e8ddc869ba5d
   Yoga: fcc198acd4a55599b3468cfb6ebc526baff5f06e
 
-PODFILE CHECKSUM: 5cb28048ae5b58ab5f184e105162a1a062dffd67
+PODFILE CHECKSUM: 592470b703c9b7b2e20d9d3543faac6e8e5578d7
 
 COCOAPODS: 1.15.2
