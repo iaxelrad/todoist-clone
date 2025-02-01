@@ -27,6 +27,7 @@
         <data android:scheme="myapp"/>
         <data android:scheme="com.iaxelrad.todoistclone"/>
         <data android:scheme="exp+todoist-clone"/>
+        <data android:scheme="todoclone"/>
       </intent-filter>
     </activity>
   </application>
